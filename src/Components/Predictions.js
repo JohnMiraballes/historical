@@ -16,19 +16,19 @@ const Predictions = ({ predictions }) => {
       {
         label: "Predicted Enrollment",
         data: enrollments,
-        backgroundColor: "rgba(75, 192, 192, 0.5)",
+        backgroundColor: "rgba(255, 99, 132, 0.6)", // Custom color for predicted enrollment
       },
       {
         label: "Predicted Sections",
         data: sections,
-        backgroundColor: "rgba(153, 102, 255, 0.5)",
+        backgroundColor: "rgba(54, 162, 235, 0.6)", // Custom color for predicted sections
       },
     ],
   };
 
   return (
     <>
-      <Table striped bordered hover>
+      <Table striped bordered hover variant="dark">
         <thead>
           <tr>
             <th>Course Code</th>

@@ -37,14 +37,14 @@ const App = () => {
   };
 
   return (
-    <Box sx={{ backgroundColor: "#f5f5f5", minHeight: "100vh", p: 2 }}>
+    <Box sx={{ backgroundColor: "#121212", minHeight: "100vh", p: 2 }}>
       <Container>
-        <Typography variant="h4" align="center" gutterBottom>
+        <Typography variant="h4" align="center" gutterBottom sx={{ color: "#ffffff" }}>
           Course Section Forecasting
         </Typography>
         <Grid container spacing={3}>
           <Grid item xs={12} md={4}>
-            <Paper elevation={3} sx={{ p: 2 }}>
+            <Paper elevation={3} sx={{ p: 2, backgroundColor: "#333333", color: "#ffffff" }}>
               <Typography variant="h6" gutterBottom>
                 Add Enrollment Data
               </Typography>
@@ -52,9 +52,15 @@ const App = () => {
               <Button
                 onClick={handleTrainModel}
                 variant="contained"
-                color="primary"
-                fullWidth
-                sx={{ mt: 2 }}
+                sx={{
+                  backgroundColor: "#ffffff",  // White background for button
+                  color: "#121212",            // Dark text color for contrast
+                  '&:hover': {
+                    backgroundColor: "#f1f1f1",  // Light gray on hover
+                  },
+                  fullWidth: true,
+                  mt: 2
+                }}
               >
                 Train Model
               </Button>
@@ -62,7 +68,7 @@ const App = () => {
           </Grid>
           <Grid item xs={12} md={8}>
             {predictions.length > 0 && (
-              <Paper elevation={3} sx={{ p: 2 }}>
+              <Paper elevation={3} sx={{ p: 2, backgroundColor: "#333333", color: "#ffffff" }}>
                 <Typography variant="h6" gutterBottom>
                   Predictions
                 </Typography>
