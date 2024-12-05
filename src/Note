@@ -1,0 +1,19 @@
+Install MUI
+npm install @mui/material @emotion/react @emotion/styled
+
+Update index.js
+import "@fontsource/roboto"; // Default font for MUI
+
+
+if showed this.
+Module not found: Error: Can't resolve '@fontsource/roboto' in 'C:\Users\Robert\historical\src'
+ (Proceed)
+
+Install Roboto Font Package
+
+Run the following command in your project directory to install the Roboto font:
+npm install @fontsource/roboto
+Import Roboto Font in Your Project
+
+In your index.js (or wherever you initialize your app), add the following import to load the Roboto font:
+import '@fontsource/roboto'; // This imports the Roboto font from @fontsource
