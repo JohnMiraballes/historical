@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Container, Navbar, Button, Card, Row, Col } from "react-bootstrap";
+import { Container, Typography, Button, Grid, Paper, Box } from "@mui/material";
 import InputForm from "./Components/InputForm";
 import Predictions from "./Components/Predictions";
 import { trainModel, predict } from "./Components/mlUtils";
@@ -13,7 +13,7 @@ const App = () => {
     setData([
       ...data,
       {
-        input: data.length + 1, // Example x-axis data
+        input: data.length + 1,
         output: parseFloat(formData.totalStudents),
         ...formData,
       },
@@ -37,46 +37,42 @@ const App = () => {
   };
 
   return (
-    <>
-      <Navbar bg="primary" variant="dark">
-        <Container>
-          <Navbar.Brand href="#">Course Section Forecasting</Navbar.Brand>
-        </Container>
-      </Navbar>
-      <Container className="mt-4">
-        <Row>
-          <Col md={4}>
-            <Card className="shadow-sm mb-4">
-              <Card.Header className="bg-primary text-white text-center">
+    <Box sx={{ backgroundColor: "#f5f5f5", minHeight: "100vh", p: 2 }}>
+      <Container>
+        <Typography variant="h4" align="center" gutterBottom>
+          Course Section Forecasting
+        </Typography>
+        <Grid container spacing={3}>
+          <Grid item xs={12} md={4}>
+            <Paper elevation={3} sx={{ p: 2 }}>
+              <Typography variant="h6" gutterBottom>
                 Add Enrollment Data
-              </Card.Header>
-              <Card.Body>
-                <InputForm onAddData={handleAddData} />
-              </Card.Body>
-            </Card>
-            <Button
-              onClick={handleTrainModel}
-              variant="success"
-              className="w-100 mt-3"
-            >
-              Train Model
-            </Button>
-          </Col>
-          <Col md={8}>
+              </Typography>
+              <InputForm onAddData={handleAddData} />
+              <Button
+                onClick={handleTrainModel}
+                variant="contained"
+                color="primary"
+                fullWidth
+                sx={{ mt: 2 }}
+              >
+                Train Model
+              </Button>
+            </Paper>
+          </Grid>
+          <Grid item xs={12} md={8}>
             {predictions.length > 0 && (
-              <Card className="shadow-sm">
-                <Card.Header className="bg-secondary text-white text-center">
+              <Paper elevation={3} sx={{ p: 2 }}>
+                <Typography variant="h6" gutterBottom>
                   Predictions
-                </Card.Header>
-                <Card.Body>
-                  <Predictions predictions={predictions} />
-                </Card.Body>
-              </Card>
+                </Typography>
+                <Predictions predictions={predictions} />
+              </Paper>
             )}
-          </Col>
-        </Row>
+          </Grid>
+        </Grid>
       </Container>
-    </>
+    </Box>
   );
 };
 
